@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig {
 
-    @Bean
+    @Bean //Esto lo registra en el ApplicationContext de Spring, y cualquier clase puede pedirlo por inyección.
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }

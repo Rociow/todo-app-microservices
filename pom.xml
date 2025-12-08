@@ -20,6 +20,14 @@
         <spring.boot.version>3.3.2</spring.boot.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.5.Final</version>
+        </dependency>
+    </dependencies>
+
     <!-- Opcional: gestionar versiones comunes -->
     <dependencyManagement>
         <dependencies>
@@ -31,5 +39,31 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
+
+<build>
+<pluginManagement>
+    <plugins>
+        <!-- Compiler plugin con MapStruct processor -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                        <version>1.5.5.Final</version>
+                    </path>
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
+    </plugins>
+</pluginManagement>
+</build>
+
 </project>
