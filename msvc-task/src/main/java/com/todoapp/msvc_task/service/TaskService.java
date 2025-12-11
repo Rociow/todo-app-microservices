@@ -1,5 +1,6 @@
 package com.todoapp.msvc_task.service;
 
+import com.todoapp.msvc_task.client.UserClient;
 import com.todoapp.msvc_task.dto.request.TaskRequestDTO;
 import com.todoapp.msvc_task.dto.response.TaskResponseDTO;
 import com.todoapp.msvc_task.entity.Task;
@@ -13,10 +14,12 @@ import java.util.List;
 public class TaskService {
     private final ITaskRepository taskRepository;
     private final TaskMapper taskMapper;
+    private final UserClient userClient;
 
-    public TaskService(ITaskRepository taskRepository, TaskMapper taskMapper) {
+    public TaskService(ITaskRepository taskRepository, TaskMapper taskMapper, UserClient userClient) {
         this.taskRepository = taskRepository;
         this.taskMapper = taskMapper;
+        this.userClient = userClient;
     }
 
     public List<TaskResponseDTO> findAll() {
@@ -35,11 +38,17 @@ public class TaskService {
 
     public TaskResponseDTO createTask(TaskRequestDTO taskRequestDTO){
         Task taskRequest = taskMapper.toEntity(taskRequestDTO);
+        // llamar al User Service para validar que el userId existe
+        if (!userClient.existsById(taskRequest.getUserId())) {
+            throw new RuntimeException("Usuario no encontrado");
+        }
+
         Task task = new Task();
         task.setDescription(taskRequest.getDescription());
         task.setCompleted(taskRequest.isCompleted());
-        var saved = taskRepository.save(task); // ahora guarda entidad Task
-        return taskMapper.toDto(saved);    }
+        Task saved = taskRepository.save(task); // ahora guarda entidad Task
+        return taskMapper.toDto(saved);
+    }
 
     public TaskResponseDTO updateTask(Long id, TaskRequestDTO taskRequestDTO) {
         Task existingTask = taskRepository.findById(id)

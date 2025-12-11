@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Con registro, login, perfil, cambio de contraseña, CRUD usuarios (admin)
+ */
+
 @Service
 public class UserService{
 
@@ -43,6 +47,19 @@ public class UserService{
         return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
+    // Obtener perfil
+    public User getProfile(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    }
+
+    // Cambiar contraseña
+    public void changePassword(String username, String newPassword) {
+        User user = getProfile(username);
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
     public UserResponseDTO getUserById(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
@@ -72,20 +89,6 @@ public class UserService{
         User savedUser = userRepository.save(existingUser);
         return userMapper.toDto(savedUser);
     }
-
-    // Obtener perfil
-    public User getProfile(String username) {
-        return userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-    }
-
-    // Cambiar contraseña
-    public void changePassword(String username, String newPassword) {
-        User user = getProfile(username);
-        user.setPassword(passwordEncoder.encode(newPassword));
-        userRepository.save(user);
-    }
-
 
     // Listar todos (solo admin)
     public List<UserResponseDTO> findAll() {
