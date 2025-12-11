@@ -28,7 +28,7 @@ public class UserService{
     }
 
     public UserResponseDTO registerUser(UserRequestDTO userRequestDTO) {
-        User user = userMapper.toEntityFromRequestDto(userRequestDTO);
+        User user = userMapper.toEntity(userRequestDTO);
         if(userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new RuntimeException("El email ya está en uso");
         }

@@ -25,6 +25,22 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  msvc-user:
+    build: ./msvc-user
+    container_name: user-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+
+
+
   mongodb:
     image: mongo:6.0
     container_name: mongo_db

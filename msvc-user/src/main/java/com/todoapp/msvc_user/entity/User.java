@@ -1,9 +1,12 @@
 package com.todoapp.msvc_user.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -28,4 +31,5 @@ public class User {
 
     @Column(nullable = false)
     private Boolean active = true;
+
 }
