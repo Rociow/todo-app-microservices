@@ -12,6 +12,7 @@
         <module>msvc-notification</module>
         <module>msvc-task</module>
         <module>msvc-user</module>
+        <module>msvc-gateway</module>
     </modules>
 
     <properties>
