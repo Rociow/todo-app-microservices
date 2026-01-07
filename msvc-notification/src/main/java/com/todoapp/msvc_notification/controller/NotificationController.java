@@ -8,6 +8,11 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+/**
+ * Controller for managing notifications.
+ * Provides endpoints to create, retrieve, and update notifications.
+ */
+
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {

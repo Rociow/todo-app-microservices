@@ -5,27 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb6ef6-087f-4be9-830b-6dbf67509ec8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-notification/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-task/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/MsvcTaskApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/MsvcTaskApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/NotificationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/NotificationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-user/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="37RVUlNbiz1iGXcLMvspB3T0JWK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,15 +50,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.msvc-notification/Dockerfile.executor": "Run",
+    "Maven.msvc-task [clean,package].executor": "Run",
     "Maven.todo-app-microservices [clean,install].executor": "Run",
+    "Maven.todo-app-microservices [clean,package].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LangTecnologia/OneDrive/Documentos/Proyectos/todo-app-microservices/msvc-task",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LangTecnologia\OneDrive\Documentos\Proyectos\todo-app-microservices\msvc-task" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

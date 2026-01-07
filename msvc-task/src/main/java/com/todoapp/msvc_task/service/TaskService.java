@@ -1,5 +1,6 @@
 package com.todoapp.msvc_task.service;
 
+import com.todoapp.msvc_task.client.NotificationClient;
 import com.todoapp.msvc_task.client.UserClient;
 import com.todoapp.msvc_task.dto.request.TaskRequestDTO;
 import com.todoapp.msvc_task.dto.response.TaskResponseDTO;
@@ -15,11 +16,13 @@ public class TaskService {
     private final ITaskRepository taskRepository;
     private final TaskMapper taskMapper;
     private final UserClient userClient;
+    private final NotificationClient notificationClient;
 
-    public TaskService(ITaskRepository taskRepository, TaskMapper taskMapper, UserClient userClient) {
+    public TaskService(ITaskRepository taskRepository, TaskMapper taskMapper, UserClient userClient, NotificationClient notificationClient) {
         this.taskRepository = taskRepository;
         this.taskMapper = taskMapper;
         this.userClient = userClient;
+        this.notificationClient = notificationClient;
     }
 
     public List<TaskResponseDTO> findAll() {
@@ -44,9 +47,20 @@ public class TaskService {
         }
 
         Task task = new Task();
+        task.setUserId(taskRequest.getUserId());
         task.setDescription(taskRequest.getDescription());
         task.setCompleted(taskRequest.isCompleted());
         Task saved = taskRepository.save(task); // ahora guarda entidad Task
+
+        // enviar notificación al usuario
+        try {
+            String message = "Se ha creado una nueva tarea: " + saved.getDescription();
+            notificationClient.createNotification(saved.getUserId(), message);
+        } catch (Exception e) {
+            // manejar error de notificación (por ejemplo, registrar el error)
+            System.err.println("Error al enviar notificación: " + e.getMessage());
+        }
+
         return taskMapper.toDto(saved);
     }
 

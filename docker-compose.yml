@@ -12,6 +12,20 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  msvc-task:
+    build: ./msvc-task
+    container_name: task-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/taskdb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+
   postgres:
     image: postgres:15
     container_name: postgres_db
@@ -39,8 +53,6 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: "true"
 
-
-
   mongodb:
     image: mongo:6.0
     container_name: mongo_db
@@ -49,6 +61,18 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+
+  msvc-notification:
+    build: ./msvc-notification
+    container_name: notification-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_APPLICATION_NAME: msvc-notification
+      SERVER_PORT: 8082
+      SPRING_DATA_MONGODB_URI: mongodb://mongo_db:27017/notificationdb
 
 volumes:
   mysql_data:
