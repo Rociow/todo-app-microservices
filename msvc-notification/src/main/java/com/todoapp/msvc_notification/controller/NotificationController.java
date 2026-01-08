@@ -23,14 +23,19 @@ public class NotificationController {
         this.service = service;
     }
 
+    @GetMapping
+    public ResponseEntity<List<NotificationResponseDTO>> getAllNotifications() {
+        return ResponseEntity.ok(service.getAllNotifications());
+    }
+
     @GetMapping("/{userId}")
     public ResponseEntity<List<NotificationResponseDTO>> getNotifications(@PathVariable Long userId) {
         return ResponseEntity.ok(service.getUserNotifications(userId));
     }
 
     @PostMapping
-    public ResponseEntity<NotificationResponseDTO> create(@RequestParam Long userId,
-                                                  @RequestParam String message) {
+    public ResponseEntity<NotificationResponseDTO> create(@RequestParam("userId") Long userId,
+                                                  @RequestParam("message") String message) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.createNotification(userId, message));
     }

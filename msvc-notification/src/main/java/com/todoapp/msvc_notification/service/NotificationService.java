@@ -20,13 +20,24 @@ public class NotificationService {
         this.mapper = mapper;
     }
 
+    public List<NotificationResponseDTO> getAllNotifications() {
+        return repository.findAll()
+                .stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+
     public NotificationResponseDTO createNotification(Long userId, String message) {
         Notification notification = new Notification();
         notification.setUserId(userId);
         notification.setMessage(message);
         notification.setCreatedAt(LocalDateTime.now());
         notification.setRead(false);
-        return mapper.toDto(repository.save(notification));
+
+        Notification saved = repository.save(notification);
+
+        return new NotificationResponseDTO(saved.getId(), saved.getMessage(), saved.getUserId());
+
     }
 
     public List<NotificationResponseDTO> getUserNotifications(Long userId) {
