@@ -1,9 +1,12 @@
 package com.todoapp.msvc_user.controller;
 
+import com.todoapp.msvc_user.dto.request.LoginRequestDTO;
 import com.todoapp.msvc_user.dto.request.UserRequestDTO;
+import com.todoapp.msvc_user.dto.response.LoginResponseDTO;
 import com.todoapp.msvc_user.dto.response.UserResponseDTO;
 import com.todoapp.msvc_user.entity.User;
 import com.todoapp.msvc_user.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -57,16 +60,15 @@ public class UserController {
 
     /**
      * Endpoint to log in a user.
-     * @param username
-     * @param password
-     * @return ResponseEntity<Boolean> indicating if the login was successful.
      */
-    // Login (público, devuelve true/false por ahora)
-    @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestParam String username,
-                                         @RequestParam String password) {
-        boolean success = userService.login(username, password);
-        return ResponseEntity.ok(success);
+    // Login (genera JWT)
+    @PostMapping("/auth/login")
+    public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO request) {
+        LoginResponseDTO response = userService.authenticate(request);
+        if (response.success()) {
+            return ResponseEntity.ok(response);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
     /**

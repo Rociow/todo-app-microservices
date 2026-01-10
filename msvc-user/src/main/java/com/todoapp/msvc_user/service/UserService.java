@@ -1,6 +1,9 @@
 package com.todoapp.msvc_user.service;
 
+import com.todoapp.msvc_user.config.JwtUtil;
+import com.todoapp.msvc_user.dto.request.LoginRequestDTO;
 import com.todoapp.msvc_user.dto.request.UserRequestDTO;
+import com.todoapp.msvc_user.dto.response.LoginResponseDTO;
 import com.todoapp.msvc_user.dto.response.UserResponseDTO;
 import com.todoapp.msvc_user.entity.User;
 import com.todoapp.msvc_user.mapper.UserMapper;
@@ -20,11 +23,13 @@ public class UserService{
     private final IUserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
+    private final JwtUtil jwtUtil;
 
-    public UserService(IUserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper) {
+    public UserService(IUserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userMapper = userMapper;
+        this.jwtUtil = jwtUtil;
     }
 
     public UserResponseDTO registerUser(UserRequestDTO userRequestDTO) {
@@ -40,22 +45,37 @@ public class UserService{
         return userMapper.toDto(usuarioNuevo);
     }
 
-    public boolean login(String email, String rawPassword) {
+    public LoginResponseDTO authenticate(LoginRequestDTO loginRequestDTO) {
+        String email = loginRequestDTO.email();
+        String rawPassword = loginRequestDTO.password();
+
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        return passwordEncoder.matches(rawPassword, user.getPassword());
+        if (passwordEncoder.matches(rawPassword, user.getPassword())) {
+            // credenciales válidas → generar token
+            String token = jwtUtil.generateToken(user.getEmail(), user.getRole().toString());
+
+            return new LoginResponseDTO(
+                    token,
+                    user.getEmail(),
+                    user.getRole(),
+                    true,
+                    null // mensaje de error vacío
+            );
+        }
+
+        // credenciales inválidas
+        return new LoginResponseDTO(
+                null,
+                null,
+                null,
+                false,
+                "Credenciales inválidas"
+        );
     }
 
-    public UserResponseDTO getAuthenticatedUser() {
-        // Aquí deberías obtener el usuario autenticado del contexto de seguridad
-        // Por simplicidad, este método devuelve un usuario ficticio
-        User user = userRepository.findById(1L)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        return userMapper.toDto(user);
-    }
-
-    // Obtener perfil
+// Obtener perfil
     public User getProfile(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
