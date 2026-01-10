@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb6ef6-087f-4be9-830b-6dbf67509ec8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/repository/INotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/repository/INotificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/service/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/NotificationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/NotificationClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/client/UserClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/repository/ITaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/repository/ITaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
