@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service for managing tasks.
+ */
+
 @Service
 public class TaskService {
     private final ITaskRepository taskRepository;
@@ -25,6 +29,11 @@ public class TaskService {
         this.notificationClient = notificationClient;
     }
 
+    /**
+     * Find all tasks.
+     *
+     * @return List of TaskResponseDTO
+     */
     public List<TaskResponseDTO> findAll() {
         var tasks = taskRepository.findAll();
         return tasks.stream()
@@ -32,6 +41,12 @@ public class TaskService {
                 .toList();
     }
 
+    /**
+     * Get a task by its ID.
+     *
+     * @param id Task ID
+     * @return TaskResponseDTO
+     */
     public TaskResponseDTO getTaskById(Long id) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));
@@ -39,6 +54,25 @@ public class TaskService {
         return taskMapper.toDto(task);
     }
 
+    /**
+     * Get tasks by user ID.
+     *
+     * @param userId User ID
+     * @return List of TaskResponseDTO
+     */
+    public List<TaskResponseDTO> getTasksByUserId(Long userId) {
+        var tasks = taskRepository.findByUserId(userId);
+        return tasks.stream()
+                .map(taskMapper::toDto)
+                .toList();
+    }
+
+    /**
+     * Create a new task.
+     *
+     * @param taskRequestDTO Task data
+     * @return Created TaskResponseDTO
+     */
     public TaskResponseDTO createTask(TaskRequestDTO taskRequestDTO){
         Task taskRequest = taskMapper.toEntity(taskRequestDTO);
         // llamar al User Service para validar que el userId existe
@@ -64,6 +98,13 @@ public class TaskService {
         return taskMapper.toDto(saved);
     }
 
+    /**
+     * Update an existing task.
+     *
+     * @param id             Task ID
+     * @param taskRequestDTO Updated task data
+     * @return Updated TaskResponseDTO
+     */
     public TaskResponseDTO updateTask(Long id, TaskRequestDTO taskRequestDTO) {
         Task existingTask = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));
@@ -76,6 +117,11 @@ public class TaskService {
         return taskMapper.toDto(updatedTask);
     }
 
+    /**
+     * Delete a task by its ID.
+     *
+     * @param id Task ID
+     */
     public void deleteTask(Long id) {
         if(!taskRepository.existsById(id)) {
             throw new RuntimeException("Tarea no encontrada");

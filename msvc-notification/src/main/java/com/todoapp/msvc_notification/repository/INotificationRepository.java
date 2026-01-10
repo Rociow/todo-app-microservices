@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface INotificationRepository extends MongoRepository<Notification, String> {
     List<Notification> findByUserId(Long userId);
-
 }

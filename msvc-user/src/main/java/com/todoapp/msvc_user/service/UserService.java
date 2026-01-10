@@ -47,6 +47,14 @@ public class UserService{
         return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
+    public UserResponseDTO getAuthenticatedUser() {
+        // Aquí deberías obtener el usuario autenticado del contexto de seguridad
+        // Por simplicidad, este método devuelve un usuario ficticio
+        User user = userRepository.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        return userMapper.toDto(user);
+    }
+
     // Obtener perfil
     public User getProfile(String username) {
         return userRepository.findByUsername(username)
@@ -54,8 +62,9 @@ public class UserService{
     }
 
     // Cambiar contraseña
-    public void changePassword(String username, String newPassword) {
-        User user = getProfile(username);
+    public void changePassword(Long id, String newPassword) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);
     }
@@ -68,7 +77,7 @@ public class UserService{
 
     public void deleteUser(Long id) {
         if(!userRepository.existsById(id)) {
-            throw new RuntimeException("Usuario no encontrado");
+            throw new IllegalArgumentException("Usuario no encontrado");
         }
         userRepository.deleteById(id);
     }
