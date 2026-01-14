@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb6ef6-087f-4be9-830b-6dbf67509ec8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/config/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/request/LoginRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/response/LoginResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/client/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/UserResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/request/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/response/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/interservice/UserResponseValidated.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +32,9 @@
       <list>
         <option value="Dockerfile" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

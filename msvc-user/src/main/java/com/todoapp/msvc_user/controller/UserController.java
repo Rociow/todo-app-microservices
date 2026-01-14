@@ -38,12 +38,13 @@ public class UserController {
     }
 
     /**
-     * Endpoint to get the authenticated user's details.
-     * @return ResponseEntity<UserResponseDTO> containing the user's details.
+     * Endpoint to validate user credentials.
+     * @param loginRequestDTO
+     * @return ResponseEntity<UserResponseDTO> containing the validated user's details.
      */
-    @GetMapping("/me")
-    public ResponseEntity<UserResponseDTO> getAuthenticatedUser() {
-        UserResponseDTO user = userService.getAuthenticatedUser();
+    @GetMapping("/validate")
+    public ResponseEntity<LoginResponseDTO> validateCredentials(LoginRequestDTO loginRequestDTO) {
+        LoginResponseDTO user = userService.authenticate(loginRequestDTO);
         return ResponseEntity.ok(user);
     }
 
