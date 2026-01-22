@@ -74,6 +74,20 @@ services:
       SERVER_PORT: 8082
       SPRING_DATA_MONGODB_URI: mongodb://mongo_db:27017/notificationdb
 
+  gateway:
+    build: ./gateway
+    container_name: api-gateway
+    ports:
+      - "8085:8080"   # expone el gateway en tu máquina en 8085
+    depends_on:
+      - msvc-user
+      - msvc-task
+      - msvc-notification
+    environment:
+      SPRING_APPLICATION_NAME: msvc-gateway
+      SERVER_PORT: 8080
+      JWT_SECRET: MiClaveSuperSecreta1234567890
+
 volumes:
   mysql_data:
   postgres_data:

@@ -45,30 +45,24 @@ public class SecurityConfig {
                 )
                 //reglas de autorizacion, le dice que rutas puede usar cada rol
                 .authorizeHttpRequests(auth -> auth
-                        // Endpoints públicos (sin autenticación)
-                        .requestMatchers(
-                                "/api/auth/**",
-                                "/actuator/**"
-                        ).permitAll()
+                                // Endpoints públicos (sin autenticación)
+                                .requestMatchers(
+                                        "/api/auth/**",
+                                        "/actuator/**"
+                                ).permitAll()
 
-                        // Solo rol ADMIN para todos estos métodos y rutas
-                        .requestMatchers(
-                                "/api/reportes/**",
-                                "/api/tarifas/{id}/admin/{idAdmin}", //p
-                                "/api/usuarios/monopatines/administracion/{idAdmin}/reporte-uso",
-                                "/api/cuentas/{id}/administraccion/{idAdmin}/habilitar",
-                                "/api/cuentas/{id}/administraccion/{idAdmin}/deshabilitar"
-                        ).hasRole("ADMIN")
+                                // Ejemplo: solo ADMIN puede crear usuarios
+                                .requestMatchers(HttpMethod.POST, "/api/users/**").hasRole("ADMIN")
 
-                        // Solo el POST de /api/tarifas requiere rol ADMIN
-                        .requestMatchers(HttpMethod.POST, "/api/tarifas").hasRole("ADMIN") //p
+                                // Ejemplo: todos los autenticados pueden ver tareas
+                                .requestMatchers("/api/tasks/**").authenticated()
 
-                        // El resto de métodos en /api/tarifas (GET, PUT, etc.) públicos o
-                        // si preferís solo autenticados:
-                        .requestMatchers("/api/tarifas").permitAll()//p
+                                // Ejemplo: notificaciones solo para usuarios autenticados
+                                .requestMatchers("/api/notifications/**").authenticated()
 
-                        // Todos los demás requieren autenticación
-                        .anyRequest().authenticated()
+                                // Todo lo demás requiere autenticación
+                                .anyRequest().authenticated()
+
                 )
                 .exceptionHandling(ex -> ex
                         .accessDeniedHandler(customAccessDeniedHandler)

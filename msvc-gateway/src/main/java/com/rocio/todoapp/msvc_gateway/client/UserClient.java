@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "msvc-user", path = "/api/users")
+@FeignClient(name = "user-service", url = "http://user-service:8081", path = "/api/users")
 public interface UserClient {
 
     @PostMapping("/validate")

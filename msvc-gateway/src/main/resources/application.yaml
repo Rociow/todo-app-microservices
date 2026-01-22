@@ -5,12 +5,21 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: http://localhost:8081
+          uri: http://user-service:8081
           predicates:
-            - Path=/users/**
+            - Path=/api/users/**
         - id: task-service
-          uri: http://localhost:8082
+          uri: http://task-service:8080
           predicates:
-            - Path=/tasks/**
+            - Path=/api/tasks/**
+        - id: notification-service
+          uri: http://notification-service:8082
+          predicates:
+            - Path=/api/notifications/**
+
+jwt:
+  secret: ${JWT_SECRET:miClaveSecretaSuperSeguraDeAlMenos256Bits1234567890}
+  expiration: 3600000
+
 server:
   port: 8080
