@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copia el jar generado por tu build de Spring Boot
-COPY target/gateway-0.0.1-SNAPSHOT.jar app.jar
+COPY target/msvc-gateway-0.0.1-SNAPSHOT.jar app.jar
 
 # Comando de inicio
 ENTRYPOINT ["java","-jar","app.jar"]

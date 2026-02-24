@@ -1,4 +1,4 @@
-version: "3.9"
+
 services:
   mysql:
     image: mysql:8.0
@@ -75,7 +75,7 @@ services:
       SPRING_DATA_MONGODB_URI: mongodb://mongo_db:27017/notificationdb
 
   gateway:
-    build: ./gateway
+    build: ./msvc-gateway
     container_name: api-gateway
     ports:
       - "8085:8080"   # expone el gateway en tu máquina en 8085

@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb6ef6-087f-4be9-830b-6dbf67509ec8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/msvc-gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/MsvcGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/MsvcGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/client/UserClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/CustomAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/CustomAccessDeniedHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/dto/request/NotificationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/dto/request/NotificationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +45,8 @@
     &quot;Maven.msvc-gateway [clean,package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.msvc-notification [clean,package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.msvc-task [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.msvc-user [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.msvc-user [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.todo-app-microservices [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.todo-app-microservices [clean,package].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
