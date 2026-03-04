@@ -11,6 +11,11 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   msvc-task:
     build: ./msvc-task
@@ -18,7 +23,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy   # 👈 espera que MySQL esté listo
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/taskdb
       SPRING_DATASOURCE_USERNAME: root
@@ -38,6 +44,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   msvc-user:
     build: ./msvc-user
@@ -45,7 +56,8 @@ services:
     ports:
       - "8081:8081"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy   # 👈 espera que PostgreSQL esté listo
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb
       SPRING_DATASOURCE_USERNAME: postgres
@@ -61,6 +73,11 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   msvc-notification:
     build: ./msvc-notification
@@ -68,11 +85,12 @@ services:
     ports:
       - "8082:8082"
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy   # 👈 espera que MongoDB esté listo
     environment:
       SPRING_APPLICATION_NAME: msvc-notification
       SERVER_PORT: 8082
-      SPRING_DATA_MONGODB_URI: mongodb://mongo_db:27017/notificationdb
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/notificationdb
 
   gateway:
     build: ./msvc-gateway
@@ -86,7 +104,7 @@ services:
     environment:
       SPRING_APPLICATION_NAME: msvc-gateway
       SERVER_PORT: 8080
-      JWT_SECRET: MiClaveSuperSecreta1234567890
+      JWT_SECRET: miClaveSecretaSuperSeguraParaJWT1234
 
 volumes:
   mysql_data:

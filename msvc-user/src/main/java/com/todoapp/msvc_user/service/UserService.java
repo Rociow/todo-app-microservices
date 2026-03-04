@@ -5,6 +5,7 @@ import com.todoapp.msvc_user.dto.request.LoginRequestDTO;
 import com.todoapp.msvc_user.dto.request.UserRequestDTO;
 import com.todoapp.msvc_user.dto.response.LoginResponseDTO;
 import com.todoapp.msvc_user.dto.response.UserResponseDTO;
+import com.todoapp.msvc_user.entity.Role;
 import com.todoapp.msvc_user.entity.User;
 import com.todoapp.msvc_user.mapper.UserMapper;
 import com.todoapp.msvc_user.repository.IUserRepository;
@@ -33,16 +34,27 @@ public class UserService{
     }
 
     public UserResponseDTO registerUser(UserRequestDTO userRequestDTO) {
-        User user = userMapper.toEntity(userRequestDTO);
+        User user = new User();
+        user.setUsername(userRequestDTO.username());
+        user.setEmail(userRequestDTO.email());
+        user.setPassword(userRequestDTO.password());
+
         if(userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new RuntimeException("El email ya está en uso");
         }
 
+        user.setRole(Role.USER);
         // encriptar la contraseña antes de guardar
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         User usuarioNuevo = userRepository.save(user);
-        return userMapper.toDto(usuarioNuevo);
+
+        // Y el response también a mano
+        return new UserResponseDTO(
+                usuarioNuevo.getId(),
+                usuarioNuevo.getUsername(),
+                usuarioNuevo.getEmail(),
+                usuarioNuevo.getRole().toString());
     }
 
     public LoginResponseDTO authenticate(LoginRequestDTO loginRequestDTO) {
@@ -59,7 +71,7 @@ public class UserService{
             return new LoginResponseDTO(
                     token,
                     user.getEmail(),
-                    user.getRole(),
+                    user.getRole().toString(),
                     true,
                     null // mensaje de error vacío
             );

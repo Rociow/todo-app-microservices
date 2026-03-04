@@ -1,8 +1,8 @@
 package com.rocio.todoapp.msvc_gateway.controller;
 
 
-import com.rocio.todoapp.msvc_gateway.dto.request.LoginRequest;
-import com.rocio.todoapp.msvc_gateway.dto.response.LoginResponse;
+import com.rocio.todoapp.msvc_gateway.dto.request.LoginRequestDTO;
+import com.rocio.todoapp.msvc_gateway.dto.response.LoginResponseDTO;
 import com.rocio.todoapp.msvc_gateway.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +21,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody @Valid LoginRequest request) {
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid LoginRequestDTO request) {
         // llamo al servicio de autenticacion
-        LoginResponse response = authService.authenticate(request);
+        LoginResponseDTO response = authService.authenticate(request);
 
         if (response.success()) {
             return ResponseEntity.ok(response);

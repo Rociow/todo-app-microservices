@@ -48,7 +48,9 @@ public class SecurityConfig {
                                 // Endpoints públicos (sin autenticación)
                                 .requestMatchers(
                                         "/api/auth/**",
-                                        "/actuator/**"
+                                        "/actuator/**",
+                                        "/api/users/register",
+                                        "/api/users/validate"
                                 ).permitAll()
 
                                 // Ejemplo: solo ADMIN puede crear usuarios

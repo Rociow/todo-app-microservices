@@ -5,7 +5,7 @@ import com.todoapp.msvc_user.entity.Role;
 public record LoginResponseDTO(
         String token,
         String email,
-        Role role,
+        String role,
         boolean success,
         String error
 ) {

@@ -42,8 +42,8 @@ public class UserController {
      * @param loginRequestDTO
      * @return ResponseEntity<UserResponseDTO> containing the validated user's details.
      */
-    @GetMapping("/validate")
-    public ResponseEntity<LoginResponseDTO> validateCredentials(LoginRequestDTO loginRequestDTO) {
+    @PostMapping("/validate")
+    public ResponseEntity<LoginResponseDTO> validateCredentials(@RequestBody LoginRequestDTO loginRequestDTO) {
         LoginResponseDTO user = userService.authenticate(loginRequestDTO);
         return ResponseEntity.ok(user);
     }
@@ -61,7 +61,7 @@ public class UserController {
 
     /**
      * Endpoint to log in a user.
-     */
+
     // Login (genera JWT)
     @PostMapping("/auth/login")
     public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO request) {
@@ -70,7 +70,7 @@ public class UserController {
             return ResponseEntity.ok(response);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
-    }
+    }*/
 
     /**
      * Endpoint to retrieve all users (admin only).
