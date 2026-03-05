@@ -5,24 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb6ef6-087f-4be9-830b-6dbf67509ec8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/request/LoginRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/dto/response/LoginResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/request/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/request/UserRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/response/LoginResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/response/LoginResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/response/UserResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/dto/response/UserResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/java/com/todoapp/msvc_user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-user/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/MsvcNotificationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/MsvcNotificationApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/entity/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/mapper/NotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-notification/src/main/java/com/todoapp/msvc_notification/mapper/NotificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/msvc-task/src/main/java/com/todoapp/msvc_task/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +80,17 @@
       <updated>1766865891471</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/msvc-gateway/src/main/java/com/rocio/todoapp/msvc_gateway/config/JwtUtil.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

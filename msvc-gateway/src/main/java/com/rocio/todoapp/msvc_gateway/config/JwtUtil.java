@@ -45,11 +45,16 @@ public class JwtUtil {
 
     //Obtiene los claims de un token JWT dado.
     public Claims getClaims(String token) {
-        return Jwts.parser()
-                .verifyWith(getSigningKey())
-                .build()
-                .parseSignedClaims(token)
-                .getPayload();
+        try {
+            return Jwts.parser()
+                    .verifyWith(getSigningKey())
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
+        } catch (Exception e) {
+            System.out.println(">>> ERROR EN getClaims: " + e.getMessage());
+            throw e;
+        }
     }
 
     public Claims extractClaims(String token) {

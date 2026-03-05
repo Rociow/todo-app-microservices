@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -29,6 +30,11 @@ public class SecurityConfig {
     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, CustomAccessDeniedHandler customAccessDeniedHandler) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
         this.customAccessDeniedHandler = customAccessDeniedHandler;
+    }
+
+    @Bean
+    public HttpSessionSecurityContextRepository securityContextRepository() {
+        return new HttpSessionSecurityContextRepository();
     }
 
     @Bean
@@ -54,7 +60,7 @@ public class SecurityConfig {
                                 ).permitAll()
 
                                 // Ejemplo: solo ADMIN puede crear usuarios
-                                .requestMatchers(HttpMethod.POST, "/api/users/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/users/**").authenticated()
 
                                 // Ejemplo: todos los autenticados pueden ver tareas
                                 .requestMatchers("/api/tasks/**").authenticated()

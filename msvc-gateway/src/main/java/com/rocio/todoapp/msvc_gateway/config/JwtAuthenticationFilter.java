@@ -8,6 +8,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -33,12 +34,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // Rutas públicas que no necesitan autenticación
         String path = request.getRequestURI();
+        String authHeader = request.getHeader("Authorization");
+
         if (isPublicPath(path)) {
             filterChain.doFilter(request, response);
             return;
         }
-
-        String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
@@ -52,6 +53,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 String email = jwtUtil.extractEmail(token);
                 String role = jwtUtil.extractRole(token);
 
+                System.out.println(">>> TOKEN VALIDO - email: " + email + " rol: " + role);
                 // Configurar contexto de seguridad
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                         email,
@@ -61,11 +63,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
+                request.getSession(true).setAttribute(
+                        HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
+                        SecurityContextHolder.getContext()
+                );
+
                 // Propagar información del usuario mediante headers (opcional para microservicios)
                 response.addHeader("X-User-Email", email);
                 response.addHeader("X-User-Role", role);
+            }else {
+                System.out.println(">>> TOKEN INVALIDO");
             }
         } catch (Exception e) {
+            System.out.println(">>> EXCEPCION: " + e.getMessage());
             // Token inválido, continuar sin autenticación
             SecurityContextHolder.clearContext();
         }

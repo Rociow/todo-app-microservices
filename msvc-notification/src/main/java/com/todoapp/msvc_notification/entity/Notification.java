@@ -1,10 +1,9 @@
 package com.todoapp.msvc_notification.entity;
 
-import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,12 +20,11 @@ public class Notification {
     private Long userId;
     private String message;
     private LocalDateTime createdAt;
-    private boolean read;
+    private boolean read = false;
 
-    @PrePersist
+    @CreatedDate
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
-        this.read = false;
     }
 
 }
