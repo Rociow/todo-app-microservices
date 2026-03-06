@@ -32,10 +32,6 @@ public class SecurityConfig {
         this.customAccessDeniedHandler = customAccessDeniedHandler;
     }
 
-    @Bean
-    public HttpSessionSecurityContextRepository securityContextRepository() {
-        return new HttpSessionSecurityContextRepository();
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
